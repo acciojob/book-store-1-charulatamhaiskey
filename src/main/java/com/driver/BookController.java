@@ -101,12 +101,14 @@ public class BookController {
     // getBooksByAuthor()
 
     @GetMapping("/get-books-by-author")
-    public ResponseEntity<Book> getBookByAuthor(@RequestParam String author){
+    public ResponseEntity<List<Book>> getBookByAuthor(@RequestParam String author){
+        List<Book> bookList1=new ArrayList<>();
         for(Book book:bookList){
             if(book.getAuthor().equals(author))
-                return new ResponseEntity<>(book,HttpStatus.FOUND);
+                bookList1.add(book);
+
         }
-        return null;
+        return new ResponseEntity<>(bookList1,HttpStatus.FOUND);
     }
 
 
@@ -115,12 +117,13 @@ public class BookController {
     // pass genre name as request param
     // getBooksByGenre()
     @GetMapping("/get-books-by-genre")
-    public ResponseEntity<Book> getBookByGenre(@RequestParam String genre){
+    public ResponseEntity<List<Book>> getBookByGenre(@RequestParam String genre){
+        List<Book> bookList1=new ArrayList<>();
         for(Book book:bookList){
             if(book.getGenre().equals(genre))
-                return new ResponseEntity<>(book,HttpStatus.FOUND);
+                bookList1.add(book);
         }
-        return null;
+        return new ResponseEntity<>(bookList1,HttpStatus.FOUND);
     }
 
 
