@@ -101,7 +101,7 @@ public class BookController {
     // getBooksByAuthor()
 
     @GetMapping("/get-books-by-author")
-    public ResponseEntity<List<Book>> getBookByAuthor(@RequestParam String author){
+    public ResponseEntity<List<Book>> getBooksByAuthor(@RequestParam String author){
         List<Book> bookList1=new ArrayList<>();
         for(Book book:bookList){
             if(book.getAuthor().equals(author))
@@ -117,7 +117,7 @@ public class BookController {
     // pass genre name as request param
     // getBooksByGenre()
     @GetMapping("/get-books-by-genre")
-    public ResponseEntity<List<Book>> getBookByGenre(@RequestParam String genre){
+    public ResponseEntity<List<Book>> getBooksByGenre(@RequestParam String genre){
         List<Book> bookList1=new ArrayList<>();
         for(Book book:bookList){
             if(book.getGenre().equals(genre))
